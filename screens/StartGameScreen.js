@@ -4,9 +4,19 @@ import PrimaryButton from "../components/PrimaryButton";
 const StartGameScreen = () => {
   return (
     <View style={styles.inputContainer}>
-      <TextInput style={styles.numberInput} maxLength={2} />
-      <PrimaryButton>Reset</PrimaryButton>
-      <PrimaryButton>Confirm</PrimaryButton>
+      <TextInput
+        style={styles.numberInput}
+        maxLength={2}
+        keyboardType="number-pad"
+      />
+      <View style={styles.buttonGroup}>
+        <View style={styles.button}>
+          <PrimaryButton>Reset</PrimaryButton>
+        </View>
+        <View style={styles.button}>
+          <PrimaryButton>Confirm</PrimaryButton>
+        </View>
+      </View>
     </View>
   );
 };
@@ -19,8 +29,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 24,
     borderRadius: 8,
     marginTop: 100,
-    backgroundColor: "#72063c",
+    backgroundColor: "#4e0329",
     elevation: 4,
+    alignItems: "center",
   },
   numberInput: {
     height: 50,
@@ -32,5 +43,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginVertical: 8,
     fontWeight: "bold",
+  },
+  buttonGroup: {
+    flexDirection: "row",
+    justifyContent: "center",
+  },
+  button: {
+    flex: 1,
   },
 });
