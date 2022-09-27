@@ -4,7 +4,7 @@ import { StyleSheet, ImageBackground, SafeAreaView } from "react-native";
 // import { useFonts } from "expo-fonts";
 import StartGameScreen from "./screens/StartGameScreen.js";
 import GameScreen from "./screens/GameScreen.js";
-import GameOVerScreen from "./screens/GameOVerScreen.js";
+import GameOVerScreen from "./screens/GameOverScreen.js";
 
 export default function App() {
   const [userNumber, setUserNumber] = useState();
