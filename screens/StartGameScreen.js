@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { TextInput, View, StyleSheet, Alert } from "react-native";
+import { TextInput, View, StyleSheet, Alert, Text } from "react-native";
 import PrimaryButton from "../components/ui/PrimaryButton";
+import Title from "../components/ui/Title";
+import Colors from "../constants/colors";
 
 const StartGameScreen = ({ onConfirm }) => {
   const [enteredNumber, setEnteredNumber] = useState("");
@@ -28,20 +30,24 @@ const StartGameScreen = ({ onConfirm }) => {
   }
 
   return (
-    <View style={styles.inputContainer}>
-      <TextInput
-        style={styles.numberInput}
-        maxLength={2}
-        keyboardType="number-pad"
-        value={enteredNumber}
-        onChangeText={numberInputHandler}
-      />
-      <View style={styles.buttonGroup}>
-        <View style={styles.button}>
-          <PrimaryButton onPress={resetInputString}>Reset</PrimaryButton>
-        </View>
-        <View style={styles.button}>
-          <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
+    <View style={styles.rootContainer}>
+      <Title>Guess My Number</Title>
+      <View style={styles.inputContainer}>
+        <Text style={styles.instructionText}>Input a Number</Text>
+        <TextInput
+          style={styles.numberInput}
+          maxLength={2}
+          keyboardType="number-pad"
+          value={enteredNumber}
+          onChangeText={numberInputHandler}
+        />
+        <View style={styles.buttonGroup}>
+          <View style={styles.button}>
+            <PrimaryButton onPress={resetInputString}>Reset</PrimaryButton>
+          </View>
+          <View style={styles.button}>
+            <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
+          </View>
         </View>
       </View>
     </View>
@@ -51,11 +57,19 @@ const StartGameScreen = ({ onConfirm }) => {
 export default StartGameScreen;
 
 const styles = StyleSheet.create({
+  rootContainer: {
+    flex: 1,
+    marginTop: 100,
+    alignItems: "center",
+  },
+  instructionText: {
+    color: Colors.accent500,
+  },
   inputContainer: {
     padding: 16,
     marginHorizontal: 24,
     borderRadius: 8,
-    marginTop: 100,
+    marginTop: 36,
     backgroundColor: "#4e0329",
     elevation: 4,
     alignItems: "center",

@@ -14,6 +14,6 @@ const styles = StyleSheet.create({
     color: "white",
     borderWidth: 2,
     borderColor: "white",
-    paddingVertical: 12,
+    padding: 12,
   },
 });
