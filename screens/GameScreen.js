@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { View, StyleSheet, Alert } from "react-native";
+import { View, StyleSheet, Alert, Text, FlatList } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import NumberContainer from "../components/game/NumberContainer";
 import Card from "../components/ui/Card";
@@ -23,6 +23,8 @@ let maxBoundary = 100;
 const GameScreen = ({ chosenNumber, onGameOver }) => {
   const initialGuess = generateRandomBetween(1, 100, chosenNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
+
+  const [guessRounds, setGuessRounds] = useState([initialGuess]);
 
   useEffect(() => {
     if (currentGuess === chosenNumber) {
@@ -48,6 +50,7 @@ const GameScreen = ({ chosenNumber, onGameOver }) => {
     setCurrentGuess(
       generateRandomBetween(minBoundary, maxBoundary, currentGuess)
     );
+    setGuessRounds((prev) => [...prev, currentGuess]);
   }
 
   return (
@@ -71,7 +74,11 @@ const GameScreen = ({ chosenNumber, onGameOver }) => {
           </View>
         </View>
       </Card>
-      {/* <View>Log  Rounds</View> */}
+      <FlatList
+        data={guessRounds}
+        renderItem={(item) => <Text>{item.item}</Text>}
+        keyExtractor={(item) => item}
+      />
     </View>
   );
 };
