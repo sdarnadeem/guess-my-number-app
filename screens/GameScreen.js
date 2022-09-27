@@ -3,7 +3,13 @@ import { Text, View } from "react-native";
 const GameScreen = () => {
   return (
     <View>
-      <Text>Game Screen</Text>
+      <Text>Opponent's Guess</Text>
+      {/* Guess */}
+      <View>
+        <Text>Higher or Lower</Text>
+        {/* +- */}
+      </View>
+      {/* <View>Log Rounds</View> */}
     </View>
   );
 };
